@@ -4,6 +4,12 @@ FROM debian:testing
 # maintainer
 MAINTAINER Leszek Grzanka <grzanka@agh.edu.pl>
 
+# Install necessary system packages
+RUN apt-get -qq update && \
+    apt-get install -qq -y sudo && \
+    rm -rf /var/lib/apt/lists/*
+
+
 # Install necessary packages to get code and compile SHIELDHIT
 RUN apt-get -qq update && \
     apt-get install -qq -y git gfortran make && \
@@ -11,7 +17,7 @@ RUN apt-get -qq update && \
 
 # Install necessary packages to run python converter bdo2txt
 RUN apt-get -qq update && \
-    apt-get install -qq -y python3 python3-setuptools && \
+    apt-get install -qq -y python3 python3-setuptools python3-pip && \
     apt-get install -qq -y python3-numpy python3-matplotlib gnuplot-nox && \
     rm -rf /var/lib/apt/lists/*
 
