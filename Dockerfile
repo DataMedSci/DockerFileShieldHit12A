@@ -15,6 +15,11 @@ RUN apt-get -qq update && \
     apt-get install -qq -y git gfortran make && \
     rm -rf /var/lib/apt/lists/*
 
+# Install LaTeX to produce SHIELDHIT documentation
+RUN apt-get -qq update && \
+    apt-get install -qq -y --no-install-recommends texlive-latex-base && \
+    rm -rf /var/lib/apt/lists/*
+
 # Install necessary packages to run python converter bdo2txt
 RUN apt-get -qq update && \
     apt-get install -qq -y python3 python3-setuptools python3-pip && \
