@@ -27,6 +27,14 @@ RUN apt-get -qq update && \
     apt-get install -qq -y --no-install-recommends python3-numpy python3-matplotlib gnuplot-nox && \
     rm -rf /var/lib/apt/lists/*
 
+
+# Install graphviz and gprof2dot to visualize profiling results
+RUN apt-get -qq update && \
+    apt-get install -qq -y --no-install-recommends graphviz && \
+    pip3 install gprof2dot && \
+    rm -rf /var/lib/apt/lists/*
+
+
 # Add temporary user
 RUN useradd -m -d /home/test/ test
 RUN echo "test:test" | chpasswd
