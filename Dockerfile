@@ -18,7 +18,7 @@ RUN apt-get -qq update && \
 # Install LaTeX to produce SHIELDHIT documentation
 RUN apt-get -qq update && \
     apt-get install -qq -y --no-install-recommends texlive-latex-base texlive-latex-extra && \
-    apt-get install -qq -y --no-install-recommends texlive-science texlive-lang-cyrillic texlive-fonts-recommended && \
+    apt-get install -qq -y --no-install-recommends ghostscript texlive-science texlive-lang-cyrillic texlive-fonts-recommended && \
     rm -rf /var/lib/apt/lists/*
 
 # Install necessary packages to run python converter bdo2txt
