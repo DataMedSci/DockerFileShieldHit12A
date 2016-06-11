@@ -15,6 +15,11 @@ RUN apt-get -qq update && \
     apt-get install -qq -y --no-install-recommends git gfortran make && \
     rm -rf /var/lib/apt/lists/*
 
+# Install necessary packages to make SHIELDHIT releases
+RUN apt-get -qq update && \
+    apt-get install -qq -y --no-install-recommends dos2unix binutils-mingw-w64 && \
+    rm -rf /var/lib/apt/lists/*
+
 # Install LaTeX to produce SHIELDHIT documentation
 RUN apt-get -qq update && \
     apt-get install -qq -y --no-install-recommends ghostscript texlive-latex-base texlive-latex-extra && \
