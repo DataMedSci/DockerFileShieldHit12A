@@ -17,7 +17,7 @@ RUN apt-get -qq update && \
 
 # Install necessary packages to make SHIELDHIT releases
 RUN apt-get -qq update && \
-    apt-get install -qq -y --no-install-recommends dos2unix binutils-mingw-w64 && \
+    apt-get install -qq -y --no-install-recommends zip dos2unix gfortran-mingw-w64 libc6-dev-i386 gfortran-multilib gcc-multilib && \
     rm -rf /var/lib/apt/lists/*
 
 # Install LaTeX to produce SHIELDHIT documentation
