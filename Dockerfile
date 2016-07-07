@@ -45,6 +45,10 @@ RUN useradd -m -d /home/test/ test
 RUN echo "test:test" | chpasswd
 RUN echo "test    ALL=(ALL) ALL" >> /etc/sudoers
 
+ADD .bash_profile /home/test
+
+RUN chown test:test /home/test/.bash_profile
+
 # Activate user, compilation as root is not wise
 USER test
 WORKDIR /home/test
