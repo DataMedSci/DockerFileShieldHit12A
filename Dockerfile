@@ -36,7 +36,7 @@ RUN apt-get -qq update && \
 # Install graphviz and gprof2dot to visualize profiling results
 RUN apt-get -qq update && \
     apt-get install -qq -y --no-install-recommends graphviz && \
-    pip3 install gprof2dot && \
+    pip3 install gprof2dot pytest-capturelog pytest-timeout pytest-xdist && \
     rm -rf /var/lib/apt/lists/*
 
 
