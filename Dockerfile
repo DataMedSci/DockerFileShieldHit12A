@@ -29,7 +29,7 @@ RUN apt-get -qq update && \
 # Install necessary packages to run python converter bdo2txt
 RUN apt-get -qq update && \
     apt-get install -qq -y --no-install-recommends python3 python3-setuptools python3-pip && \
-    apt-get install -qq -y --no-install-recommends python3-numpy python3-matplotlib gnuplot-nox && \
+    apt-get install -qq -y --no-install-recommends python3-matplotlib gnuplot-nox && \
     rm -rf /var/lib/apt/lists/*
 
 
@@ -39,6 +39,8 @@ RUN apt-get -qq update && \
     pip3 install gprof2dot pytest-capturelog pytest-timeout pytest-xdist && \
     rm -rf /var/lib/apt/lists/*
 
+# Install pymchelper
+RUN pip3 install pymchelper
 
 # Add temporary user
 RUN useradd -m -d /home/test/ test
