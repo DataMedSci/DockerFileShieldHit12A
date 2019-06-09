@@ -39,6 +39,11 @@ RUN apt-get -qq update && \
     pip3 install gprof2dot pytest-capturelog pytest-timeout pytest-xdist && \
     rm -rf /var/lib/apt/lists/*
 
+# Install valgrind for advanced debugging
+RUN apt-get -qq update && \
+    apt-get install -qq -y --no-install-recommends valgrind && \
+    rm -rf /var/lib/apt/lists/*
+
 # Install pymchelper
 RUN pip3 install pymchelper
 
