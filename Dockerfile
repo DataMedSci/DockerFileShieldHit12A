@@ -12,7 +12,7 @@ RUN apt-get -qq update && \
 
 # Install necessary packages to get code and compile SHIELDHIT
 RUN apt-get -qq update && \
-    apt-get install -qq -y --no-install-recommends git gfortran make && \
+    apt-get install -qq -y --no-install-recommends git gfortran make zlib1g-dev libz-mingw-w64-dev && \
     rm -rf /var/lib/apt/lists/*
 
 # Install necessary packages to make SHIELDHIT releases
