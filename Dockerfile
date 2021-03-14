@@ -28,15 +28,16 @@ RUN apt-get -qq update && \
 
 # Install necessary packages to run python converter bdo2txt
 RUN apt-get -qq update && \
-    apt-get install -qq -y --no-install-recommends python3 python3-setuptools python3-pip && \
-    apt-get install -qq -y --no-install-recommends python3-matplotlib gnuplot-nox && \
+    apt-get install -qq -y --no-install-recommends python3 python3-pip && \
+    apt-get install -qq -y --no-install-recommends gnuplot-nox && \
+    pip3 install setuptools matplotlib && \
     rm -rf /var/lib/apt/lists/*
 
 
 # Install graphviz and gprof2dot to visualize profiling results
 RUN apt-get -qq update && \
     apt-get install -qq -y --no-install-recommends graphviz && \
-    pip3 install gprof2dot pytest-capturelog pytest-timeout pytest-xdist && \
+    pip3 install gprof2dot pytest-timeout pytest-xdist && \
     rm -rf /var/lib/apt/lists/*
 
 # Install valgrind for advanced debugging
