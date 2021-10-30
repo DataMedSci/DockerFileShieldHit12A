@@ -1,4 +1,4 @@
-# lets start from debian
+# lets start from testing debian
 FROM debian:testing
 
 # maintainer
